@@ -67,7 +67,36 @@ Is it possible to add multiple users and multiple public keys? Or multiple publi
 
 ## Ansible
 
+Ansible expects host IPs to be set in the /etc/ansible/hosts file in order to run commands on a remote machine. The IP from the terraform-created server would have to be copied into the file above.
 
+Test the connection:
+
+`ansible all -m ping -u ubuntu`
+
+* `-u`: flag to specify the ssh username (AWS Ubuntu image uses the "ubuntu" user by default)
+* `all`: group name to specify the IPs to communicate with
+
+**To-do**: define a group for these servers, or specify by name in playbook.yml, so we aren't running commands against "all"?
+
+### Resources
+
+https://github.com/geerlingguy/ansible-role-drupal
+
+https://github.com/do-community/ansible-playbooks
+
+### Things to Install
+
+* apache
+* db
+* php modules required by Drupal
+* composer?
+* create test web page?
+
+### Things to Configure
+
+* apache
+* db
+* site config
 
 ## Future
 
@@ -75,3 +104,7 @@ Is it possible to add multiple users and multiple public keys? Or multiple publi
 * AWS: elastic IP
 * terraform: create a Production version that generates a separate DB instance and some networking resources to connect them
 * terraform: move some properties to a variables.tf file to simplify/force some basic project setup
+* ansible: confirm PHP modules
+* ansible: confirm DB setup. Do we want o use MariaDB?
+* ansible: PHP version is OK? Any reason to use 7.3? That requires adding another rep
+* ansible: additional user setup, beyond drupal_user?

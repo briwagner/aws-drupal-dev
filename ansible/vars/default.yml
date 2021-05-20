@@ -1,0 +1,8 @@
+---
+mysql_root_password: "mysql_root_password"
+app_user: "drupal_user"
+app_user_password: "secret_password"
+http_host: "drupal"
+http_conf: "drupal.conf"
+http_port: "80"
+disable_default: true
