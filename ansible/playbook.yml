@@ -2,7 +2,7 @@
 # Klein LAMP on Ubuntu 20.04
 ##################################################
 ---
-- hosts: all
+- hosts: aws_drupal_dev
   become: true
   vars_files:
     - vars/default.yml
@@ -83,6 +83,13 @@
         rule: allow
         port: "{{ http_port }}"
         proto: tcp
+
+# Composer installation
+    - name: Get Composer
+      get_url:
+        url: https://getcomposer.org/download/{{ composer_version }}/composer.phar
+        dest: /usr/local/bin/composer.phar
+        mode: 0755
 
   handlers:
     - name: Reload Apache

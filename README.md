@@ -76,6 +76,10 @@ Test the connection:
 * `-u`: flag to specify the ssh username (AWS Ubuntu image uses the "ubuntu" user by default)
 * `all`: group name to specify the IPs to communicate with
 
+To run the playbook:
+
+`ansible-playbook playbook.yml`
+
 **To-do**: define a group for these servers, or specify by name in playbook.yml, so we aren't running commands against "all"?
 
 ### Resources

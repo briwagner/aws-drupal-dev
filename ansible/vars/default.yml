@@ -6,3 +6,4 @@ http_host: "drupal"
 http_conf: "drupal.conf"
 http_port: "80"
 disable_default: true
+composer_version: 1.10.16
